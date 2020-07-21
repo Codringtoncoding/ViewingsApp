@@ -14,6 +14,13 @@ namespace ViewingsApp.Services
     {
         public BookingValidation ValidateBooking(BookingRequest bookingRequest, IEnumerable<Agent> allAgents, IEnumerable<Property> allProperties)
         {
+            if(bookingRequest.PhoneNumber == "")
+            {
+                return new BookingValidation
+                {
+                    IsValid = false, ErrorMessage = "You must provide a phonenumber"
+                };
+            }
 
             if(bookingRequest.Name == "")
             {
@@ -21,6 +28,7 @@ namespace ViewingsApp.Services
                 {
                     IsValid = false, ErrorMessage = "You must provide a name"
                 };
+            
             }
             return new BookingValidation
             {
