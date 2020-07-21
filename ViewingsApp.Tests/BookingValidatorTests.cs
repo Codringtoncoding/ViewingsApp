@@ -112,6 +112,27 @@ namespace ViewingsApp.Tests
             bookingValidation.ErrorMessage.Should().Be("You must provide a phonenumber");
 
         }
+
+        [Test]
+        public void ShouldFailIfEmailAddressIsMissing()
+        {
+            var bookingRequest = new BookingRequest
+            {
+                EmailAddress = ""
+            };
+            var bookingValidator = new BookingValidator();
+
+             // Act
+            var bookingValidation = bookingValidator.ValidateBooking(bookingRequest, _agents, _properties);
+
+            // Assert
+            bookingValidation.IsValid.Should().BeFalse();
+            bookingValidation.ErrorMessage.Should().Be("You must provide a valid email address");
+
+
+
+
+        }
     
 
 

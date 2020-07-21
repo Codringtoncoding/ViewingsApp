@@ -22,6 +22,14 @@ namespace ViewingsApp.Services
                 };
             }
 
+             if(bookingRequest.EmailAddress == "")
+            {
+                return new BookingValidation
+                {
+                    IsValid = false, ErrorMessage = "You must provide a valid email address"
+                };
+            }
+
             if(bookingRequest.Name == "")
             {
                 return new BookingValidation
