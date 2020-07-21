@@ -6,6 +6,7 @@ using ViewingsApp.Models.Database;
 using ViewingsApp.Models.Request;
 using ViewingsApp.Services;
 
+
 namespace ViewingsApp.Tests
 {
     public class Tests
@@ -95,46 +96,64 @@ namespace ViewingsApp.Tests
             bookingValidation.IsValid.Should().BeFalse();
             bookingValidation.ErrorMessage.Should().Be("You must provide a name");
         }
-        [Test]
-        public void ShouldFailIfPhoneNumberIsMissing()
-        {
-            var bookingRequest = new BookingRequest
-            {
-                PhoneNumber = ""
-            };
-            var bookingValidator = new BookingValidator();
+        // [Test]
+        // public void ShouldFailIfPhoneNumberIsMissing()
+        // {
+        //     var bookingRequest = new BookingRequest
+        //     {
+        //         PhoneNumber = ""
+        //     };
+        //     var bookingValidator = new BookingValidator();
 
-             // Act
-            var bookingValidation = bookingValidator.ValidateBooking(bookingRequest, _agents, _properties);
+        //      // Act
+        //     var bookingValidation = bookingValidator.ValidateBooking(bookingRequest, _agents, _properties);
 
-            // Assert
-            bookingValidation.IsValid.Should().BeFalse();
-            bookingValidation.ErrorMessage.Should().Be("You must provide a phonenumber");
+        //     // Assert
+        //     bookingValidation.IsValid.Should().BeFalse();
+        //     bookingValidation.ErrorMessage.Should().Be("You must provide a phonenumber");
 
-        }
+        // }
 
-        [Test]
-        public void ShouldFailIfEmailAddressIsMissing()
-        {
-            var bookingRequest = new BookingRequest
-            {
-                EmailAddress = ""
-            };
-            var bookingValidator = new BookingValidator();
+        // [Test]
+        // public void ShouldFailIfEmailAddressIsMissing()
+        // {
+        //     var bookingRequest = new BookingRequest
+        //     {
+        //         EmailAddress = ""
+        //     };
+        //     var bookingValidator = new BookingValidator();
 
-             // Act
-            var bookingValidation = bookingValidator.ValidateBooking(bookingRequest, _agents, _properties);
+        //      // Act
+        //     var bookingValidation = bookingValidator.ValidateBooking(bookingRequest, _agents, _properties);
 
-            // Assert
-            bookingValidation.IsValid.Should().BeFalse();
-            bookingValidation.ErrorMessage.Should().Be("You must provide a valid email address");
-
-
+        //     // Assert
+        //     bookingValidation.IsValid.Should().BeFalse();
+        //     bookingValidation.ErrorMessage.Should().Be("You must provide a valid email address");
 
 
-        }
-    
 
+
+        // }
+
+        // [Test]
+
+        // public void ShouldFailIfAgentIsNotSelected()
+        // {
+        //     var bookingRequest = new BookingRequest
+        //     {
+        //         AgentId == Agent.ID 
+        //     };
+        //     var bookingValidation = new BookingValidator();
+        // }
+        // //write test for agents cannot be double booked
+
+        // //1. check if agent is free at  agiven time.
+        // //2. if the new booking occurs 
+        // //2. 
+
+        // // write tests for properties that cannot be double booked
+
+        // //
 
     }
 }
